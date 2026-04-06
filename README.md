@@ -2,27 +2,27 @@
 
 Backend system for managing financial records with role-based access control.
 
-## 🚀 Features
+## Features
 
-✅ User registration and authentication (JWT)
-✅ Role-based access control (Viewer, Analyst, Admin)
-✅ Financial records CRUD operations
-✅ Advanced filtering (date, category, type)
-✅ Dashboard analytics and summaries
-✅ Input validation and error handling
-✅ SQLite database with Sequelize ORM
+- User registration and authentication (JWT)
+- Role-based access control (Viewer, Analyst, Admin)
+- Financial records CRUD operations
+- Advanced filtering (date, category, type)
+- Dashboard analytics and summaries
+- Input validation and error handling
+- SQLite database with Sequelize ORM
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Runtime**: Node.js v18+
-- **Framework**: Express.js
-- **Database**: SQLite
-- **ORM**: Sequelize
-- **Authentication**: JWT (jsonwebtoken)
-- **Validation**: Joi
-- **Password Hashing**: bcrypt
+- Runtime: Node.js v18+
+- Framework: Express.js
+- Database: SQLite
+- ORM: Sequelize
+- Authentication: JWT (jsonwebtoken)
+- Validation: Joi
+- Password Hashing: bcrypt
 
-## 📦 Installation
+## Installation
 
 ### Prerequisites
 - Node.js (v18 or higher)
@@ -66,7 +66,7 @@ npm run dev      # Development (with nodemon)
 
 Server will run on `http://localhost:3000`
 
-## 📚 API Documentation
+## API Documentation
 
 ### Base URL
 http://localhost:3000/api
@@ -206,15 +206,15 @@ Content-Type: application/json
 }
 ```
 
-## 🔐 Role-Based Permissions
+## Role-Based Permissions
 
 | Role    | View Records | Create | Update | Delete | Manage Users | Analytics |
 |---------|-------------|--------|--------|--------|--------------|-----------|
-| Viewer  | ✅          | ❌     | ❌     | ❌     | ❌           | ✅        |
-| Analyst | ✅          | ❌     | ❌     | ❌     | ❌           | ✅        |
-| Admin   | ✅          | ✅     | ✅     | ✅     | ✅           | ✅        |
+| Viewer  | Yes         | No     | No     | No     | No           | Yes       |
+| Analyst | Yes         | No     | No     | No     | No           | Yes       |
+| Admin   | Yes         | Yes    | Yes    | Yes    | Yes          | Yes       |
 
-## 🧪 Testing
+## Testing
 
 Run tests:
 ```bash
@@ -223,7 +223,7 @@ npm test
 
 Or use the Postman collection in `/postman` folder.
 
-## 📁 Project Structure
+## Project Structure
 ```
 src/
 ├── config/          # Configuration files
@@ -243,28 +243,28 @@ postman/
 └── Finance-API.postman_collection.json
 ```
 
-## 🤔 Design Decisions
+## Design Decisions
 
 ### Architecture
-- **Layered Architecture**: Clear separation between routes, controllers, services, and models
-- **Service Layer**: All business logic isolated in services for reusability and testing
-- **Middleware Pattern**: Authentication and authorization handled via Express middleware
+- Layered Architecture: Clear separation between routes, controllers, services, and models
+- Service Layer: All business logic isolated in services for reusability and testing
+- Middleware Pattern: Authentication and authorization handled via Express middleware
 
 ### Database
-- **SQLite**: Chosen for simplicity and portability
-- **Sequelize ORM**: Provides abstraction and migration support
-- **Trade-off**: SQLite has concurrency limitations, but for this assignment's scope it's ideal. Production deployment would use PostgreSQL.
+- SQLite: Chosen for simplicity and portability
+- Sequelize ORM: Provides abstraction and migration support
+- Trade-off: SQLite has concurrency limitations, but for this assignment's scope it's ideal. Production deployment would use PostgreSQL.
 
 ### Authentication
-- **JWT**: Stateless authentication suitable for REST APIs
-- **bcrypt**: Industry-standard password hashing
-- **Token expiry**: 24 hours for security
+- JWT: Stateless authentication suitable for REST APIs
+- bcrypt: Industry-standard password hashing
+- Token expiry: 24 hours for security
 
 ### Validation
-- **Joi**: Schema-based validation for clean error messages
-- **Early validation**: Input validated before reaching business logic
+- Joi: Schema-based validation for clean error messages
+- Early validation: Input validated before reaching business logic
 
-## 🚧 Assumptions
+## Assumptions
 
 1. All monetary amounts are in INR
 2. Users can only see their own records (except Admin)
@@ -272,21 +272,21 @@ postman/
 4. Single currency support
 5. No email verification (simplified for assignment)
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
-- [ ] Pagination for large datasets
-- [ ] Soft delete functionality
-- [ ] Email notifications
-- [ ] Export to CSV/PDF
-- [ ] Multi-currency support
-- [ ] Audit logs
-- [ ] Rate limiting
-- [ ] API versioning
+- Pagination for large datasets
+- Soft delete functionality
+- Email notifications
+- Export to CSV/PDF
+- Multi-currency support
+- Audit logs
+- Rate limiting
+- API versioning
 
-## 📞 Support
+## Support
 
 For questions or issues, please open an issue in the repository.
 
-## 📄 License
+## License
 
 This project is for educational purposes.
