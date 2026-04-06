@@ -20,7 +20,6 @@ const authenticate = async (req, res, next) => {
 
     const decoded = jwt.verify(token, config.JWT_SECRET);
     
-    // Fetch user to ensure they still exist and are active
     const user = await User.findByPk(decoded.id);
     
     if (!user || user.status !== 'active') {

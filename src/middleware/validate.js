@@ -1,7 +1,6 @@
 const Joi = require('joi');
 const { RECORD_TYPES, ROLES } = require('../config/constants');
 
-// User registration validation
 const validateUserRegistration = (req, res, next) => {
   const schema = Joi.object({
     name: Joi.string().min(2).max(100).required().messages({

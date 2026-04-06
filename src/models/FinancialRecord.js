@@ -63,7 +63,6 @@ const FinancialRecord = sequelize.define('FinancialRecord', {
   updatedAt: 'updated_at'
 });
 
-// Define associations
 FinancialRecord.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
 User.hasMany(FinancialRecord, { foreignKey: 'user_id', as: 'records' });
 
