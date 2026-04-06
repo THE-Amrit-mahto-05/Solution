@@ -8,6 +8,11 @@ const seedDatabase = async () => {
   try {
     console.log('🌱 Starting database seeding...');
 
+    // Sync database to create tables
+    const { sequelize } = require('../../src/config/database');
+    await sequelize.sync({ force: true }); // Force recreate tables
+    console.log('Database synchronized and tables created.');
+
     // Create sample users
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash('password123', saltRounds);
