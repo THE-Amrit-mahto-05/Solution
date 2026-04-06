@@ -1,6 +1,0 @@
-class Config:
-    MAX_RESUME_LENGTH = 50000
-    MIN_RESUME_LENGTH = 100
-    
-    MAX_JD_LENGTH = 20000
-    MIN_JD_LENGTH = 50
