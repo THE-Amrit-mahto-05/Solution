@@ -41,7 +41,6 @@ const validateUserRegistration = (req, res, next) => {
   next();
 };
 
-// User login validation
 const validateUserLogin = (req, res, next) => {
   const schema = Joi.object({
     email: Joi.string().email().required().messages({
@@ -75,7 +74,6 @@ const validateUserLogin = (req, res, next) => {
   next();
 };
 
-// Financial record validation
 const validateRecord = (req, res, next) => {
   const schema = Joi.object({
     amount: Joi.number().positive().precision(2).max(99999999.99).required().messages({
@@ -125,7 +123,6 @@ const validateRecord = (req, res, next) => {
   next();
 };
 
-// User role update validation
 const validateRoleUpdate = (req, res, next) => {
   const schema = Joi.object({
     role: Joi.string().valid(...Object.values(ROLES)).required().messages({

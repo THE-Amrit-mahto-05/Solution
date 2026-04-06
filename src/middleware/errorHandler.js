@@ -3,7 +3,6 @@ const config = require('../config/env');
 const errorHandler = (err, req, res, next) => {
   console.error('Error:', err);
 
-  // Sequelize validation errors
   if (err.name === 'SequelizeValidationError') {
     const details = err.errors.map(error => ({
       field: error.path,
@@ -20,7 +19,6 @@ const errorHandler = (err, req, res, next) => {
     });
   }
 
-  // Sequelize unique constraint errors
   if (err.name === 'SequelizeUniqueConstraintError') {
     const field = err.errors[0].path;
     return res.status(400).json({
@@ -32,7 +30,6 @@ const errorHandler = (err, req, res, next) => {
     });
   }
 
-  // Sequelize foreign key constraint errors
   if (err.name === 'SequelizeForeignKeyConstraintError') {
     return res.status(400).json({
       success: false,
@@ -43,7 +40,6 @@ const errorHandler = (err, req, res, next) => {
     });
   }
 
-  // JWT errors (should be handled in auth middleware, but just in case)
   if (err.name === 'JsonWebTokenError') {
     return res.status(401).json({
       success: false,
@@ -54,7 +50,6 @@ const errorHandler = (err, req, res, next) => {
     });
   }
 
-  // Default error response
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal server error';
 
